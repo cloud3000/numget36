@@ -21,7 +21,12 @@
   **Num36**     The processed ASCII Integer Value Of _Numeric-String_ Returned To The Caller.
 
   **Decptr**    16 bit Integer Returned To The Caller Representing The Number Of Decimal Places Found In The Number. 
-  To be used as follows:
+
+  **Editerror** 16 bit Integer A Non-Zero If _Numeric-String_ Did Not Contain Valid Numeric Data.
+
+  **Nu-String** X(36) Character Feild Containning a new processed version of the Numeric Digits Passed By The Caller.
+  
+   To be used as follows:
   ~~~ cobol
   Call "numget36" Using some-num-str, Num36, Decptr, Editerror, Linked-Nu-String
   If Editerror = 0 Then
@@ -36,11 +41,5 @@
    End-IF
   ~~~
   
-  > Where _NumFloat_ should a computational with an implied decimal.
-
-  **Editerror** 16 bit Integer A Non-Zero If _Numeric-String_ Did Not Contain Valid Numeric Data.
-
-  **Nu-String** X(36) Character Feild Containning a new processed version of the Numeric Digits Passed By The Caller.
-  
-            If the Numeric-String contained a valid numeric value this field
-            will contain a value that can be processed by the NUMVAL function.
+  > Where _NumFloat_ should be a computational with an implied decimal.
+  > If the Numeric-String contained a valid numeric value this field will contain a value that may be processed by the NUMVAL function.
